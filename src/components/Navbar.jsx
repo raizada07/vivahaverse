@@ -14,21 +14,20 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-gradient-to-r from-[#4bf1f4] to-[#fff000] text-white sticky top-0 z-50 shadow-2x1">
-      
-      <div className="max-w-7xl mx-auto flex justify-between items-centre px-6 py-4">
-        {/* Logo Section */}
+   <nav className="fixed top-0 left-0 w-full bg-white/10 backdrop-blur-md shadow z-50">
+
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+        {/* Logo */}
         <div className="flex items-center space-x-3">
           <img
-            src="/assets/logo.png" height={120}
+            src="/assets/logo.png" height={200}
             alt="VivahaVerse Logo"
-            className="h-5 w-5  border-yellow-400 shadow-lg bg-white p-1"
+            className="h-5 w-5 border-yellow-400 shadow-lg bg-white/90 p-1 rounded-full"
           />
-                 </div>
+        </div>
 
         {/* Desktop Menu */}
-        
-        <ul className="hidden md:flex space-x-80 text-[30px] font-body tracking-wide">
+        <ul className="hidden md:flex space-x-10 text-xl font-body tracking-wide">
           {navItems.map((item, index) => (
             <li key={index}>
               <a
@@ -42,12 +41,12 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Mobile Toggle Button */}
+        {/* Mobile Toggle */}
         <div className="md:hidden">
           {open ? (
-            <X className="h-6 w-6 text-yellow-300" onClick={() => setOpen(false)} />
+            <X className="h-8 w-8 text-yellow-300" onClick={() => setOpen(false)} />
           ) : (
-            <Menu className="h-6 w-6 text-yellow-300" onClick={() => setOpen(true)} />
+            <Menu className="h-8 w-8 text-yellow-300" onClick={() => setOpen(true)} />
           )}
         </div>
       </div>

@@ -1,3 +1,4 @@
+/* Root container */
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -5,6 +6,7 @@
   text-align: center;
 }
 
+/* Logo styling */
 .logo {
   height: 10em;
   padding: 1.5em;
@@ -18,6 +20,7 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+/* Logo animation */
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -33,18 +36,47 @@
   }
 }
 
+/* Card */
 .card {
   padding: 2em;
 }
 
+/* Documentation note */
 .read-the-docs {
   color: #888;
 }
-/* Hide scrollbar for horizontal gallery */
+
+/* Hide scrollbar */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* 🔥 Royal Background with Overlay */
+body {
+  background-image: url('/assets/royal-bg1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  color: white;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4); /* 40% dark overlay */
+  z-index: -1;
+}
+
+/* Smooth scroll for whole app */
+html {
+  scroll-behavior: smooth;
 }

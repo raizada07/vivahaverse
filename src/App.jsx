@@ -51,45 +51,53 @@ export default function App() {
   };
 
   return (
-    <div className="font-body bg-background text-primary min-h-screen">
+   <div
+  className="font-body min-h-screen bg-fixed bg-cover bg-center text-primary"
+  style={{
+    backgroundImage: `url('/images/bg1.png')`, // ← apna image path daalo
+  }}
+>
       <Navbar />
 
-      <main>
+      <main className="pt-24">  {/* 24 = enough height to push below navbar */}
+
         {currentPage === "home" && (
           <>
             {/* Hero Section */}
-            <motion.section
-              id="home"
-              initial={{ opacity: 0, y: -50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="h-[80vh] bg-gradient-to-br from-primary to-accent flex flex-col items-center justify-center text-white text-center px-4"
-            >
-              <motion.h1
-                className="text-5xl md:text-6xl font-heading mb-4"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-              >
-                Welcome to VivahaVerse
-              </motion.h1>
-              <motion.p
-                className="text-lg md:text-xl font-body max-w-xl"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-              >
-                Royal weddings, cultural traditions, and grand celebrations beautifully curated for your dream day.
-              </motion.p>
-              <motion.button
-                className="mt-8 inline-block bg-white text-primary font-semibold py-2 px-6 rounded-full shadow hover:bg-accent hover:text-white transition"
-                onClick={() => setCurrentPage("about")}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Learn More
-              </motion.button>
-            </motion.section>
+            {/* Hero Section */}
+<motion.section
+  id="home"
+  initial={{ opacity: 0, y: -50 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  className="relative h-[80vh] flex flex-col items-center justify-center text-white text-center px-4 overflow-hidden"
+>
+  {/* Background image layer */}
+  <img
+    src="/assets/bg.jpg"
+    alt="background"
+    className="absolute inset-0 w-full h-full object-cover opacity-40 -z-10"
+  />
+
+  {/* Content upar */}
+  <motion.h1
+    className="text-5xl md:text-6xl font-heading mb-4"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ delay: 0.2 }}
+  >
+    Welcome to VivahaVerse
+  </motion.h1>
+
+  <motion.p
+    className="text-lg md:text-xl font-body max-w-xl"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ delay: 0.4 }}
+  >
+    Royal weddings, cultural traditions, and grand celebrations beautifully curated for your dream day.
+  </motion.p>
+</motion.section>
 
             {/* Services Section */}
             <section id="services" className="py-20 px-6 bg-white text-center">
